@@ -12,9 +12,11 @@ def resize_faces(input_dir, output_dir, folder_name, size=(224,224)):
         cv2.imwrite(os.path.join(file, filename), resized)
 
 
+input_dir = "./data/original_sequences/youtube/c23/vid_faces"
+output_dir = "./data/original_sequences/youtube/c23/real"
 
-input_dir = "./data/manipulated_sequences/Deepfakes/c23/vid_faces"
-output_dir = "./data/manipulated_sequences/Deepfakes/c23/vid_faces_resized"
+#input_dir = "./data/manipulated_sequences/Deepfakes/c23/vid_faces"
+#output_dir = "./data/manipulated_sequences/Deepfakes/c23/fake"
 
 #for video in glob.glob(f"{input_dir}/*/"):
 #    dir = input_dir.split("/");

@@ -54,8 +54,12 @@ def extract_faces_from_video(video_path, output_root, frame_skip=32):
 # Iterate through videos in video path
 
 
-videos_path = "./data/manipulated_sequences/Deepfakes/c23/videos"
-output_root = "./data/manipulated_sequences/Deepfakes/c23/vid_faces/"
+videos_path = "./data/original_sequences/youtube/c23/videos"
+output_root = "./data/original_sequences/youtube/c23/vid_faces/"
+
+#videos_path = "./data/manipulated_sequences/Deepfakes/c23/videos"
+#output_root = "./data/manipulated_sequences/Deepfakes/c23/vid_faces/"
+
 for vid in glob.glob(f"{videos_path}/*.mp4"):
     extract_faces_from_video(vid,output_root, frame_skip=32)
 #extract_faces_from_video(video_path, output_root, frame_skip=32)
