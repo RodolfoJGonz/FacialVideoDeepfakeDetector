@@ -7,20 +7,21 @@ from torchvision import models
 import torch.optim as optim
 
 #prepare data for CNN ####################################
+#THIS STUFF IS ALREADY DONE IN THE PRIOR SCRIPTS
 transform = transforms.Compose([
-    transforms.Resize((224, 224)),
+    transforms.Resize((224, 224)),  # already 224x224, but harmless
     transforms.ToTensor(),
-    transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225]
-    )
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225])
 ])
 
-train_data = datasets.ImageFolder('dataset/train', transform=transform)
-val_data = datasets.ImageFolder('dataset/val', transform=transform)
+train_dataset = FaceDataset("train_labels.csv", transform=transform)
+val_dataset   = FaceDataset("val_labels.csv", transform=transform)
+test_dataset  = FaceDataset("test_labels.csv", transform=transform)
 
-train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
-val_loader = DataLoader(val_data, batch_size=32, shuffle=False)
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True, num_workers=4)
+val_loader   = DataLoader(val_dataset, batch_size=32, shuffle=False)
+test_loader  = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 
 # load in resnet ##################################
