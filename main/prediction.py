@@ -132,7 +132,7 @@ def predict_video(video_path, model, device="cuda", seq_len=16):
 # --- MAIN EXECUTION ---
 if __name__ == "__main__":
     # ⚠️ EDIT THIS PATH TO YOUR VIDEO
-    test_video_file = "/Users/nathanieldeleon/Desktop/currentVid.mov" 
+    test_video_file = "" 
     
     if not os.path.exists(test_video_file):
         print(f"Error: Video file not found at {test_video_file}. Please update the path.")
